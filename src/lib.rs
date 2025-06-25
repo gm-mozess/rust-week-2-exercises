@@ -86,7 +86,7 @@ pub fn move_txid(txid: String) -> String {
 }
 
 // TODO: Add necessary derive traits
-#[derive(Debug, PartialEq,Eq)]
+#[derive(Debug, PartialEq)]
 pub enum Opcode {
     OpChecksig,
     OpDup,
@@ -97,7 +97,7 @@ impl Opcode {
     pub fn from_byte(byte: u8) -> Result<Self, String> {
         // TODO: Implement mapping from byte to Opcode variant
         match byte {
-            0xac => Ok(Opcode::OpChecksig), // Hex for OP_CHECKSIG
+            0xAC => Ok(Opcode::OpChecksig), // Hex for OP_CHECKSIG
             0x76 => Ok(Opcode::OpDup),      // Hex for OP_DUP
             _ => Err("Invalid opcode: 0x00".to_string()),
         }
